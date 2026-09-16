@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Great South Run 2026 - Nepal Fundraiser">
+  <meta property="og:description" content="Running for rural communities. Carrying a toy truck. Raising funds for a real SUV.">
+  <meta property="og:image" content="https://samcoupland.com/gsr-2026/hero.jpg">
+  <meta property="og:url" content="https://samcoupland.com/gsr-2026/">
+  <title>Great South Run 2026 - Nepal SUV Challenge</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --black: #0a0a0a;
+      --charcoal: #1a1a1a;
+      --dark-grey: #2a2a2a;
+      --neon-lime: #00FF41;
+      --neon-magenta: #FF006E;
+      --neon-cyan: #00D9FF;
+      --white: #ffffff;
+      --grey: #888888;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: var(--black);
+      color: var(--white);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* Typography */
+    h1, h2, h3 {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: clamp(1.75rem, 5vw, 3rem);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #ddd;
+      max-width: 60ch;
+    }
+
+    /* Layout Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      border-bottom: 1px solid var(--dark-grey);
+    }
+
+    .logo {
+      font-weight: 900;
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, var(--neon-lime), var(--neon-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    nav a {
+      color: var(--grey);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+      font-size: 0.9rem;
+    }
+
+    nav a:hover {
+      color: var(--neon-lime);
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-top: 80px;
+      padding: 60px 0;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 200%;
+      height: 100%;
+      background: radial-gradient(circle at 30% 50%, rgba(0, 255, 65, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--neon-lime);
+      color: var(--black);
+      padding: 0.5rem 1rem;
+      border-radius: 0;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--neon-magenta), var(--neon-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #bbb;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 1rem 2rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      border-radius: 0;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      text-transform: uppercase;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: var(--neon-lime);
+      color: var(--black);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(0, 255, 65, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--neon-cyan);
+      border: 2px solid var(--neon-cyan);
+    }
+
+    .btn-secondary:hover {
+      background: var(--neon-cyan);
+      color: var(--black);
+    }
+
+    /* Progress Section */
+    .progress-hero {
+      background: linear-gradient(135deg, var(--charcoal) 0%, var(--dark-grey) 100%);
+      padding: 60px 2rem;
+      margin: 80px 0;
+      position: relative;
+      border-top: 3px solid var(--neon-magenta);
+      border-bottom: 3px solid var(--neon-lime);
+    }
+
+    .progress-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .progress-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .stat-block {
+      border-left: 4px solid var(--neon-magenta);
+      padding-left: 2rem;
+    }
+
+    .stat-number {
+      font-size: 3.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--neon-lime), var(--neon-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: #999;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+
+    .progress-visual {
+      position: relative;
+    }
+
+    .progress-bar-wrapper {
+      background: var(--dark-grey);
+      height: 60px;
+      border-left: 4px solid var(--neon-cyan);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      background: linear-gradient(90deg, var(--neon-lime), var(--neon-cyan));
+      height: 100%;
+      width: 65%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 1.5rem;
+      font-weight: 800;
+      color: var(--black);
+      font-size: 1.1rem;
+      animation: slideIn 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    @keyframes slideIn {
+      from {
+        width: 0;
+        opacity: 0;
+      }
+      to {
+        width: 65%;
+        opacity: 1;
+      }
+    }
+
+    .progress-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #999;
+      margin-top: 0.5rem;
+    }
+
+    /* Challenge Section */
+    .challenge {
+      padding: 100px 2rem;
+      position: relative;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: var(--neon-magenta);
+    }
+
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .challenge-card {
+      background: var(--charcoal);
+      border: 2px solid var(--dark-grey);
+      padding: 2rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .challenge-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+      transition: left 0.5s;
+    }
+
+    .challenge-card:hover {
+      border-color: var(--neon-lime);
+      transform: translateY(-5px);
+    }
+
+    .challenge-card:hover::before {
+      left: 100%;
+    }
+
+    .challenge-card h3 {
+      color: var(--neon-lime);
+      margin-bottom: 1rem;
+    }
+
+    .challenge-card p {
+      font-size: 0.95rem;
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Why It Matters Section */
+    .why-matters {
+      background: linear-gradient(135deg, rgba(255, 0, 110, 0.05) 0%, rgba(0, 217, 255, 0.05) 100%);
+      padding: 100px 2rem;
+      border-top: 3px solid var(--neon-cyan);
+      border-bottom: 3px solid var(--neon-magenta);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .impact-item {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .impact-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--neon-magenta);
+      flex-shrink: 0;
+      width: 80px;
+    }
+
+    .impact-content h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--neon-lime);
+    }
+
+    .impact-content p {
+      font-size: 0.95rem;
+      color: #aaa;
+    }
+
+    /* Call to Action Section */
+    .cta-section {
+      padding: 80px 2rem;
+      text-align: center;
+      background: var(--charcoal);
+    }
+
+    .cta-section h2 {
+      margin-bottom: 2rem;
+    }
+
+    .cta-section .highlight-text {
+      color: var(--neon-lime);
+      font-style: italic;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--dark-grey);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .social-links a {
+      color: var(--neon-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: var(--neon-lime);
+    }
+
+    .footer-text {
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .progress-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .section-title {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .section-title::before {
+        width: 4px;
+        height: 40px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+      }
+
+      .challenge-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .impact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .cta-buttons .btn {
+        width: 100%;
+      }
+    }
+
+    /* Animations */
+    @keyframes pulse-glow {
+      0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 40px rgba(0, 255, 65, 0.6);
+      }
+    }
+
+    .btn-primary {
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+
+    .btn-primary:hover {
+      animation: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">GSR26</div>
+    <a href="#donate">Donate Now</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag">Great South Run 2026</div>
+        <h1>Running with Purpose<br><span class="highlight">Delivering Real Change</span></h1>
+        <p>I'm running the Great South Run whilst carrying a toy truck—to raise funds for a real SUV that will transform lives in rural Nepal. Every step powers education, spiritual growth, and humanitarian relief across remote mountain communities.</p>
+        <div class="hero-buttons">
+          <a href="#donate" class="btn btn-primary">Donate Now</a>
+          <a href="#why" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Progress Section -->
+  <section class="progress-hero">
+    <div class="progress-container">
+      <div class="progress-stats">
+        <div class="stat-block">
+          <div class="stat-number" id="raised">£0</div>
+          <div class="stat-label">Raised to Date</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number" id="target">£8,825</div>
+          <div class="stat-label">Total Target</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number" id="remaining">£8,825</div>
+          <div class="stat-label">Remaining</div>
+        </div>
+      </div>
+      <div class="progress-visual">
+        <h3 style="margin-bottom: 1.5rem; color: var(--neon-cyan);">Campaign Progress</h3>
+        <div class="progress-bar-wrapper">
+          <div class="progress-bar-fill">
+            <span id="percentage">65%</span>
+          </div>
+        </div>
+        <div class="progress-labels">
+          <span>Start</span>
+          <span id="progress-text">£3,840 of £8,825</span>
+          <span>Goal</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenge Section -->
+  <section class="challenge">
+    <div class="container">
+      <div class="section-title">
+        <h2>The Challenge</h2>
+      </div>
+      <p style="margin-bottom: 3rem;">I'm running the Great South Run—a 10-mile route through Portsmouth—whilst carrying a toy truck around my waist. It's unconventional, it's challenging, and it represents something powerful: the real SUV this fundraiser will deliver to Nepal's mountain communities.</p>
+      
+      <div class="challenge-grid">
+        <div class="challenge-card">
+          <div class="card-icon">🚗</div>
+          <h3>10 Miles</h3>
+          <p>Running through Portsmouth's streets with a toy truck, raising awareness for a real solution to rural transport challenges.</p>
+        </div>
+        <div class="challenge-card">
+          <div class="card-icon">🎯</div>
+          <h3>Real Impact</h3>
+          <p>Every step represents the journey rural communities make to access education, healthcare, and spiritual resources.</p>
+        </div>
+        <div class="challenge-card">
+          <div class="card-icon">⛰️</div>
+          <h3>Mountain Roads</h3>
+          <p>The SUV will navigate Nepal's most challenging terrain to reach remote villages that rental vehicles simply cannot access.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Matters -->
+  <section class="why-matters" id="why">
+    <div class="container">
+      <div class="section-title">
+        <h2>Why This Matters</h2>
+      </div>
+      
+      <div class="impact-grid">
+        <div class="impact-item">
+          <div class="impact-number">300+</div>
+          <div class="impact-content">
+            <h4>Young Leaders Trained</h4>
+            <p>Crowns Worship Ministry has already equipped over 300 young people with spiritual foundations rooted in biblical principles.</p>
+          </div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-number">18</div>
+          <div class="impact-content">
+            <h4>Locations to Reach</h4>
+            <p>Training centres span Nepal from Panauti (231 km away) to Ilam (730 km away). A reliable vehicle is essential.</p>
+          </div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-number">£100k</div>
+          <div class="impact-content">
+            <h4>Annual Rental Costs Saved</h4>
+            <p>Renting vehicles for remote access costs over 100,000 NPR per trip. Our SUV will make this sustainable long-term.</p>
+          </div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-number">∞</div>
+          <div class="impact-content">
+            <h4>Eternal Investment</h4>
+            <p>This vehicle unlocks access to education, worship training, and humanitarian aid for generations to come.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About the Vehicle -->
+  <section class="challenge" style="background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, rgba(255, 0, 110, 0.05) 100%);">
+    <div class="container">
+      <div class="section-title">
+        <h2>The Mahindra Scorpio Getaway</h2>
+      </div>
+      <p style="margin-bottom: 2rem;">We're acquiring a second-hand Mahindra Scorpio Getaway—a 4x4 workhorse purpose-built for Nepal's mountain terrain. It features strong diesel engine performance, 4x4 capability, high ground clearance, and reliable load-carrying capacity.</p>
+      
+      <div class="challenge-grid">
+        <div class="challenge-card">
+          <div class="card-icon">⚙️</div>
+          <h3>Diesel Power</h3>
+          <p>Optimised for high-altitude travel and fuel efficiency across Nepal's challenging geography.</p>
+        </div>
+        <div class="challenge-card">
+          <div class="card-icon">🏔️</div>
+          <h3>All-Terrain 4x4</h3>
+          <p>Off-road and rural terrain access with high ground clearance for rough, unpaved roads.</p>
+        </div>
+        <div class="challenge-card">
+          <div class="card-icon">📦</div>
+          <h3>Cargo Ready</h3>
+          <p>Reliable load-carrying capacity for ministry equipment, educational resources, and humanitarian supplies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Need -->
+  <section class="challenge">
+    <div class="container">
+      <div class="section-title">
+        <h2>Serving Remote Communities</h2>
+      </div>
+      <p style="margin-bottom: 3rem;">The vehicle will support the <strong>Crowns Worship Ministry</strong> and partner with <strong>IAHC Nepal</strong> to provide educational resources to underprivileged children, support families in crisis, and enable worship training across Nepal's most isolated regions. It will be registered in the charity's name and dedicated to tangible, lasting impact.</p>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section" id="donate">
+    <div class="container">
+      <h2>Every Pound Moves Mountains</h2>
+      <p style="text-align: center; margin-bottom: 1.5rem;">Your donation directly funds a vehicle that will serve vulnerable families, equip young leaders, strengthen rural churches, and deliver education to communities most in need. This isn't just about transport—it's about <span class="highlight-text">access, impact, and transformation</span>.</p>
+      <div class="cta-buttons">
+        <a href="https://givealittle.co/c/76x2CZUWVclXtYZFkgKdEm" class="btn btn-primary">Donate Now</a>
+        <a href="mailto:crownsministry.np@gmail.com" class="btn btn-secondary">Get Involved</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <h3>Crowns Worship Ministry</h3>
+      <div class="social-links">
+        <a href="https://crownsworshipministry.org">Website</a>
+        <a href="https://facebook.com/Crowns-Worship-Ministry">Facebook</a>
+        <a href="https://instagram.com/crowns_worship_ministry">Instagram</a>
+        <a href="mailto:crownsministry.np@gmail.com">Email</a>
+      </div>
+      <p style="margin-top: 2rem; font-size: 0.95rem;">Running the Great South Run 2026 • Raising funds for Nepal • Powered by faith and community</p>
+      <div class="footer-text">
+        <p>100% of donations go directly to acquiring the vehicle. Join us in transforming lives across rural Nepal.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Animate the progress on page load
+    window.addEventListener('load', () => {
+      animateProgress();
+    });
+
+    function animateProgress() {
+      const currentRaised = 3840; // Based on your transport proposal
+      const target = 8825;
+      const percentage = Math.round((currentRaised / target) * 100);
+      const remaining = target - currentRaised;
+
+      // Animate numbers
+      animateNumber(document.getElementById('raised'), 0, currentRaised, 2000, (n) => '£' + n.toLocaleString());
+      animateNumber(document.getElementById('target'), 0, target, 2000, (n) => '£' + n.toLocaleString());
+      animateNumber(document.getElementById('remaining'), 0, remaining, 2000, (n) => '£' + n.toLocaleString());
+      animateNumber(document.getElementById('percentage'), 0, percentage, 2000, (n) => n + '%');
+
+      document.getElementById('progress-text').textContent = `£${currentRaised.toLocaleString()} of £${target.toLocaleString()}`;
+    }
+
+    function animateNumber(element, start, end, duration, formatter) {
+      const range = end - start;
+      const startTime = Date.now();
+
+      function update() {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(start + range * easeOutCubic);
+        element.textContent = formatter(current);
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        }
+      }
+
+      update();
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

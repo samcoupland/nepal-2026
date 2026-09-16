@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Nepal Fundraiser 2026">
+  <meta property="og:description" content="Raising money to help reach rural communities in Nepal">
+  <meta property="og:image" content="https://samcoupland.com/nepal-2025/img/hero.jpeg">
+  <meta property="og:image:url" content="https://samcoupland.com/nepal-2025/img/hero.jpeg">
+  <meta property="og:image:secure_url" content="https://samcoupland.com/nepal-2025/img/hero.jpeg">
+  <meta property="og:image:type" content="image/jpg">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="300">
+  <meta property="og:url" content="https://samcoupland.com/nepal-2026/">
+  <meta name="color-scheme" content="only dark">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <title>Nepal Fundraiser 2026</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --black: #000000;
+      --charcoal: #141414;
+      --dark-grey: #222222;
+      --neon-lime: #00FF41;
+      --neon-magenta: #FF006E;
+      --neon-cyan: #00D9FF;
+      --white: #ffffff;
+      --grey: #888888;
+    }
+    
+    html, body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+      background-color: var(--black);
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--white);
+      font-size: 1.1rem;
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    .one-scroll-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+    }
+
+    /* Top background image section - layered behind content */
+    .top-image-section {
+      width: 100%;
+      position: relative;
+      min-height: 1250px;
+      z-index: 2;
+    }
+
+    .top-background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--black);
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .top-background-image img {
+      width: 100vw;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transform: rotate(180deg);
+    }
+
+    /* Circular radial gradient overlay for corner/edge blackouts */
+    .top-background-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: radial-gradient(circle at center, rgba(0,0,0,0) 45%, rgba(0,0,0,0.85) 85%, rgba(0,0,0,1) 100%);
+      z-index: 2;
+    }
+
+    /* Top content overlaid on top of the background */
+    .top-overlay-content {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 3rem 1.5rem 4rem 1.5rem;
+      z-index: 10;
+    }
+
+    .top-center-cta {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-top: 1rem;
+      margin-bottom: 4rem;
+    }
+
+    .top-content-area {
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 1.5rem;
+    }
+    
+    .main-grid {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2.5rem;
+      width: 100%;
+      max-width: 900px;
+      margin-bottom: 3rem;
+    }
+    
+    /* Great South Run clickable title badge */
+    .hero-badge-container {
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      color: var(--neon-magenta);
+      border: 2px solid var(--neon-magenta);
+      padding: 0.4rem 1rem;
+      font-weight: 900;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      box-shadow: 0 0 15px rgba(255, 0, 110, 0.2);
+      text-decoration: none;
+      transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .hero-badge:hover {
+      transform: translateY(-2px);
+      background-color: var(--neon-magenta);
+      color: var(--black);
+      box-shadow: 0 0 25px rgba(255, 0, 110, 0.6);
+    }
+    
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      flex: 1;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.6rem;
+      text-align: left;
+    }
+    
+    .hero-content h1 span {
+      background: linear-gradient(135deg, var(--neon-magenta), var(--neon-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .hero-content p {
+      font-size: 1rem;
+      color: #ddd;
+      margin-bottom: 0;
+      text-align: left;
+    }
+
+    /* Circular Pie Chart Component with Hover Interaction */
+    .circular-progress-component {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .pie-chart {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: conic-gradient(var(--neon-lime) 0deg, var(--dark-grey) 0deg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 25px rgba(0, 255, 65, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.1s linear;
+    }
+
+    .circular-progress-component:hover .pie-chart {
+      transform: scale(1.06);
+      box-shadow: 0 0 35px rgba(0, 255, 65, 0.5), inset 0 0 15px rgba(0, 255, 65, 0.2);
+    }
+
+    .pie-inner {
+      width: 132px;
+      height: 132px;
+      background-color: var(--black);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem;
+      border: 2px solid var(--dark-grey);
+      text-align: center;
+      transition: border-color 0.3s ease;
+    }
+
+    .circular-progress-component:hover .pie-inner {
+      border-color: var(--neon-lime);
+    }
+
+    .pie-amount {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--neon-lime);
+      line-height: 1.2;
+      transition: transform 0.2s ease;
+    }
+
+    .pie-label {
+      font-size: 0.7rem;
+      color: var(--grey);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 0.2rem;
+      transition: color 0.2s ease;
+    }
+
+    /* Two Column Section */
+    .info-columns-section {
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 1.5rem;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      margin-bottom: -7rem;
+    }
+    
+    .info-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-row.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .transport-challenge-p{
+      margin-bottom: 10px;
+    }
+
+    .info-col-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .faded-image-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      min-height: 200px;
+      background-color: transparent;
+      flex-shrink: 0;
+    }
+
+    /* Clickable wrapper for content trucks */
+    .faded-image-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .faded-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      max-height: 450px;
+      object-fit: cover;
+      object-position: 50% 65%;
+      -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%, rgba(0,0,0,0) 100%),
+                          linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%),
+                          linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+      -webkit-mask-composite: source-in;
+      mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%, rgba(0,0,0,0) 100%),
+                  linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%),
+                  linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+      mask-composite: intersect;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .faded-image-link:hover img {
+      transform: scale(1.02);
+      filter: drop-shadow(0 0 15px rgba(0, 255, 65, 0.4));
+    }
+
+    .faded-image-wrapper .toy-truck {
+      transform: scaleX(-1);
+    }
+
+    .faded-image-link:hover .toy-truck {
+      transform: scaleX(-1) scale(1.02);
+    }
+
+    .info-col-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .info-col-text h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--neon-lime);
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .info-col-text p {
+      font-size: 1rem;
+      color: #ddd;
+      line-height: 1.6;
+    }
+
+    /* Church partnership section with blue hover highlight */
+    .church-info {
+      max-width: 900px;
+      margin: -3rem auto 3rem auto;
+      width: 100%;
+      padding: 1.5rem 1.5rem 1rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .church-info:hover {
+      background-color: rgba(0, 217, 255, 0.00);
+      border-color: rgba(0, 217, 255, 0.3);
+      box-shadow: 0 0 25px rgba(0, 217, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .church-info span {
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--grey);
+      transition: color 0.3s ease;
+    }
+
+    .church-info:hover span {
+      color: var(--white);
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .church-info img {
+      height: 120px;
+      width: 120px;
+      object-fit: cover;
+      clip-path: circle(49% at 50% 50%);
+      display: block;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .church-info:hover img {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5));
+    }
+
+    /* Shared Bottom Background Layered Unclipped */
+    .bottom-background-image {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 700px;
+      overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .bottom-background-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center bottom;
+      display: block;
+    }
+
+    /* Full-width bottom section */
+    .suv-section {
+      width: 100%;
+      position: relative;
+      margin-top: auto;
+      min-height: 500px;
+      z-index: 2;
+    }
+
+    /* Hotspot: clean side profile of a pickup truck with bed, cab, hood & 2 wheel arches */
+    .bottom-truck-hotspot {
+  position: absolute;
+  top: -9%; 
+  left: 49%;
+  width: 465px;
+  height: 260px;
+  z-index: 20;
+  pointer-events: auto;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  transition: background-color 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+
+  /* 
+    3D Transformation:
+    - perspective(800px): Establishes 3D depth.
+    - rotateY(-25deg): Swivels the front out.
+    - rotateZ(4deg): Tilts the entire body slightly clockwise.
+  */
+  transform-style: preserve-3d;
+  transform: translateX(-50%) perspective(800px) rotateY(-25deg) rotateZ(4deg);
+
+  /* 
+    Updated Clip-Path derived from the vehicle outline:
+    This traces the unique silhouette of the vehicle in the 3D perspective,
+    including precise curves for the tires rather than generic arches.
+  */
+  clip-path: polygon(
+    /* Roof and Windshield */
+    35% 10%, 60% 10%, 82% 35%,
+    /* Nose and Front Bumper */
+    92% 38%, 95% 45%, 95% 58%, 90% 70%,
+    /* Front Wheel Outer Curvature */
+    85% 70%, 85% 75%, 83% 85%, 78% 92%, 70% 95%, 62% 92%, 58% 85%, 55% 75%, 55% 70%,
+    /* Underbody Chassis */
+    35% 70%, 
+    /* Rear Wheel Outer Curvature */
+    32% 70%, 32% 75%, 30% 85%, 25% 92%, 18% 95%, 10% 92%, 6% 85%, 5% 75%, 5% 70%,
+    /* Rear Bumper and Lower Tailgate */
+    0% 70%, 0% 55%,
+    /* Upper Rear Body and Back to Roof */
+    3% 35%, 15% 10%, 35% 10%
+  );
+}
+
+    .bottom-truck-hotspot:hover {
+      background-color: rgba(0, 255, 64, 0.061);
+      filter: drop-shadow(0 0 10px rgba(0, 255, 64, 0.061));
+    }
+
+    .suv-cta-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 100%;
+      bottom: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+
+    .sharp-btn-large {
+      background: var(--neon-lime);
+      color: var(--black);
+      padding: 1rem 3rem;
+      font-weight: 900;
+      text-decoration: none;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+    }
+
+    .sharp-btn-large:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(0, 255, 65, 0.6);
+    }
+    
+    @media (max-width: 768px) {
+      .main-grid {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+      }
+      .hero-content {
+        align-items: center;
+      }
+      .hero-content h1, .hero-content p {
+        text-align: center;
+      }
+      .hero-badge-container {
+        justify-content: center;
+      }
+      .info-row, .info-row.reverse {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .top-image-section {
+        min-height: 1700px;
+      }
+      .suv-section {
+        min-height: 480px;
+      }
+      .info-row {
+        margin-bottom: 0rem;
+      }
+      .bottom-truck-hotspot {
+        top: -2%;
+        width: 400px;
+        height: 250px;
+        left: 47%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="one-scroll-wrapper">
+    <!-- Top image section with background image layered behind content -->
+    <div class="top-image-section">
+      <!-- Top background image - layered behind all content -->
+      <div class="top-background-image">
+        <img src="img/Gemini_Generated_Image_huh8g7huh8g7huh8.jpeg" alt="Top decorative banner">
+      </div>
+
+      <!-- Top content overlaid on top of the background -->
+      <div class="top-overlay-content">
+        <div class="top-center-cta">
+          <a href="https://givealittle.co/c/76x2CZUWVclXtYZFkgKdEm" class="sharp-btn-large">Donate now</a>
+        </div>
+        
+        <div class="main-grid">
+          <div class="hero-content">
+            <div class="hero-badge-container">
+              <a href="https://www.greatrun.org/events/great-south-run/" target="_blank" rel="noopener noreferrer" class="hero-badge">
+                Great South Run 2026
+              </a>
+            </div>
+            <h1>One Goal.<br><span>Run 10 Miles.</span><br>Carrying a Toy Truck.</h1>
+            <p>Why? To raise money to buy a 4x4 truck unlocking remote regions of Nepal, providing support to churches, underprivileged children, and families in crisis.</p>
+          </div>
+
+          <!-- Circular Pie Chart Component with Hover Interaction -->
+          <div class="circular-progress-component" id="circularProgressComp">
+            <div class="pie-chart" id="pieChart">
+              <div class="pie-inner">
+                <span class="pie-amount" id="pieAmount">£0</span>
+                <span class="pie-label" id="pieLabel">of £8,825 Goal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Two column section -->
+        <section class="info-columns-section">
+          <!-- Row 1: Image Left, Wording Right -->
+          <div class="info-row">
+            <div class="info-col-image">
+              <div class="faded-image-wrapper">
+                <a href="assets/Transport and Mission.pdf" download class="faded-image-link" title="Download Transport and Mission PDF">
+                  <img src="img/jeep.png" alt="Mahindra Scorpio Getaway Jeep">
+                </a>
+              </div>
+            </div>
+            <div class="info-col-text">
+              <h3>The Transport Challenge</h3>
+              <p class="transport-challenge-p">Renting a vehicle for remote areas costs over 100,000 Nepali rupees (£500) per trip. We need a durable 4x4 truck to sustainably continue our work in rough mountain terrain.</p>
+              <p>Click a truck to view our full impact report.</p>
+            </div>
+          </div>
+
+          <!-- Row 2: Wording Left, Image Right -->
+          <div class="info-row reverse">
+            <div class="info-col-image">
+              <div class="faded-image-wrapper">
+                <a href="assets/Transport and Mission.pdf" download class="faded-image-link" title="Download Transport and Mission PDF">
+                  <img class="toy-truck" src="img/Gemini_Generated_Image_1w3q4g1w3q4g1w3q.jpeg" alt="Mission impact and ministry work">
+                </a>
+              </div>
+            </div>
+            <div class="info-col-text">
+              <h3>Ministry & Charity Impact</h3>
+              <p>Partnering with <b>Crowns Worship Ministry</b> and <b>I Also Help Charity Nepal</b> with a truck there will be significantly more resources to distribute educational material, support vulnerable families and reach young adults wanting to grow their leadership skills</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Church partnership section -->
+    <div class="church-info" onclick="window.location.href='https://family.church/'">
+      <span>Working in partnership with</span>
+      <div class="image-container">
+        <a href="https://family.church/">
+          <img src="img/fc_logo.png" alt="family church">
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom background image - clean and unblocked -->
+    <div class="bottom-background-image">
+      <img src="img/Gemini_Generated_Image_rvef02rvef02rvef.jpeg" alt="neon SUV and background">
+    </div>
+
+    <!-- Bottom section -->
+    <div class="suv-section">
+      <!-- Clickable hotspot mapped to a side profile shape of a truck with a clear bed and two wheels -->
+      <a href="assets/Transport and Mission.pdf" download class="bottom-truck-hotspot" title="Download Transport and Mission PDF"></a>
+
+      <div class="suv-cta-wrapper">
+        <a href="https://givealittle.co/c/76x2CZUWVclXtYZFkgKdEm" class="sharp-btn-large">Donate now</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const raised = 3840;
+        const target = 8825;
+        const targetPct = (raised / target) * 100;
+        const targetDegrees = (targetPct / 100) * 360;
+        
+        const pieChart = document.getElementById('pieChart');
+        const amountElement = document.getElementById('pieAmount');
+        const labelElement = document.getElementById('pieLabel');
+        const progressComp = document.getElementById('circularProgressComp');
+        
+        let currentAmount = 0;
+        let currentDeg = 0;
+        const duration = 1500;
+        const steps = 60;
+        const stepTime = duration / steps;
+        
+        const amountIncrement = raised / steps;
+        const degIncrement = targetDegrees / steps;
+
+        let stepCount = 0;
+        const timer = setInterval(() => {
+          stepCount++;
+          currentAmount += amountIncrement;
+          currentDeg += degIncrement;
+          
+          if (stepCount >= steps) {
+            currentAmount = raised;
+            currentDeg = targetDegrees;
+            clearInterval(timer);
+          }
+
+          if (pieChart) {
+            pieChart.style.background = `conic-gradient(var(--neon-lime) ${currentDeg}deg, var(--dark-grey) ${currentDeg}deg)`;
+          }
+          if (amountElement) {
+            amountElement.textContent = '£' + Math.round(currentAmount).toLocaleString();
+          }
+        }, stepTime);
+
+        // Hover events to dynamically show percentage funded on hover
+        if (progressComp) {
+          progressComp.addEventListener('mouseenter', () => {
+            if (amountElement && labelElement) {
+              amountElement.textContent = Math.round(targetPct) + '%';
+              labelElement.textContent = 'Funded';
+              labelElement.style.color = 'var(--neon-lime)';
+            }
+          });
+
+          progressComp.addEventListener('mouseleave', () => {
+            if (amountElement && labelElement) {
+              amountElement.textContent = '£' + raised.toLocaleString();
+              labelElement.textContent = 'of £' + target.toLocaleString() + ' Goal';
+              labelElement.style.color = 'var(--grey)';
+            }
+          });
+        }
+      }, 150);
+    });
+  </script>
+</body>
+</html>

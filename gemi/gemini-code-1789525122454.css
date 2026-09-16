@@ -1,0 +1,275 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --black: #0a0a0a;
+  --charcoal: #141414;
+  --dark-grey: #222222;
+  --neon-lime: #00FF41;
+  --neon-magenta: #FF006E;
+  --neon-cyan: #00D9FF;
+  --white: #ffffff;
+  --grey: #888888;
+}
+
+html, body {
+  min-height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--black);
+  color: var(--white);
+  line-height: 1.4;
+}
+
+.one-scroll-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Top Bar / Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--dark-grey);
+  margin-bottom: 1rem;
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 1.25rem;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--neon-lime), var(--neon-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.donate-btn {
+  background: var(--neon-lime);
+  color: var(--black);
+  padding: 0.5rem 1.25rem;
+  font-weight: 800;
+  text-decoration: none;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.donate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+}
+
+/* Main Grid Layout */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: var(--neon-lime);
+  color: var(--black);
+  padding: 0.2rem 0.5rem;
+  font-weight: 800;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content h1 {
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content h1 span {
+  background: linear-gradient(135deg, var(--neon-magenta), var(--neon-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+  max-width: 50ch;
+}
+
+/* Creative Landing Total Raised Bar */
+.raised-panel {
+  background: var(--charcoal);
+  border: 2px solid var(--dark-grey);
+  padding: 1rem 1.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.raised-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--neon-lime);
+}
+
+.raised-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.4rem;
+}
+
+.raised-title {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--grey);
+  font-weight: 700;
+}
+
+.raised-amounts {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--neon-lime);
+}
+
+.raised-amounts span {
+  font-size: 0.8rem;
+  color: var(--grey);
+  font-weight: 600;
+}
+
+/* Creative Sharp Progress Bar */
+.sharp-progress-bar {
+  background: var(--dark-grey);
+  height: 10px;
+  width: 100%;
+  position: relative;
+  margin: 0.5rem 0 0.4rem 0;
+}
+
+.sharp-progress-fill {
+  background: linear-gradient(90deg, var(--neon-lime), var(--neon-cyan));
+  height: 100%;
+  width: 65%;
+  position: relative;
+  transition: width 1.5s cubic-bezier(0.1, 1, 0.1, 1);
+}
+
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--grey);
+  font-weight: 600;
+}
+
+/* Placeholders */
+.placeholder-card {
+  background: var(--charcoal);
+  border: 2px dashed var(--dark-grey);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  transition: border-color 0.3s;
+}
+
+.placeholder-card:hover {
+  border-color: var(--neon-cyan);
+}
+
+.placeholder-card .icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.placeholder-card span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--grey);
+  font-weight: 700;
+}
+
+.placeholder-desc {
+  font-size: 0.7rem;
+  color: #666;
+  margin-top: 0.2rem;
+}
+
+/* Comic Picture (Right Column Side-by-Side) */
+.comic-placeholder {
+  height: 220px;
+  border-color: var(--neon-magenta);
+}
+
+/* SUV Splash Picture */
+.suv-splash-placeholder {
+  height: 130px;
+  border-color: var(--neon-lime);
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--dark-grey);
+  font-size: 0.75rem;
+  color: var(--grey);
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.footer-links a {
+  color: var(--grey);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--neon-lime);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+  .comic-placeholder {
+    height: 160px;
+  }
+}
