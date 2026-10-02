@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta property="og:title" content="Nepal Fundraiser 2026">
   <meta property="og:description" content="Raising money to help reach rural communities in Nepal">
-  <meta property="og:image" content="https://samcoupland.com/nepal-2026/img/hero.jpeg">
-  <meta property="og:image:url" content="https://samcoupland.com/nepal-2026/img/hero.jpeg">
-  <meta property="og:image:secure_url" content="https://samcoupland.com/nepal-2026/img/hero.jpeg">
+  <meta property="og:image" content="https://samcoupland.com/nepal-2026/img/hero-2.jpeg">
+  <meta property="og:image:url" content="https://samcoupland.com/nepal-2026/img/hero-2.jpeg">
+  <meta property="og:image:secure_url" content="https://samcoupland.com/nepal-2026/img/hero-2.jpeg">
   <meta property="og:image:type" content="image/jpg">
   <meta property="og:image:width" content="400">
   <meta property="og:image:height" content="300">
@@ -426,6 +426,8 @@
 
     /* Shared Bottom Background Layered Unclipped */
     .bottom-background-image {
+      --caption-bottom: 1.2rem; /* raise or lower the caption */
+      --caption-left: 49%;      /* shift left or right (matches the truck hotspot) */
       position: absolute;
       bottom: 0;
       left: 0;
@@ -442,6 +444,24 @@
       object-fit: cover;
       object-position: center bottom;
       display: block;
+    }
+
+    /* Small caption positioned below the car */
+    .image-caption {
+      position: absolute;
+      bottom: 33%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: max-content;
+      max-width: 90%;
+      font-size: 0.75rem;
+      font-style: italic;
+      color: var(--grey);
+      text-align: center;
+      letter-spacing: 0.03em;
+      opacity: 0.85;
+      z-index: 3;
+      pointer-events: none;
     }
 
     /* Full-width bottom section */
@@ -572,6 +592,15 @@
         left: 47%;
       }
 
+      .bottom-background-image {
+        --caption-left: 50%;
+        --caption-bottom: 0.8rem;
+      }
+
+      .image-caption {
+        font-size: 0.6rem;
+      }
+
       .top-background-image::after {
       content: '';
       position: absolute;
@@ -673,6 +702,7 @@
     <!-- Bottom background image - clean and unblocked -->
     <div class="bottom-background-image">
       <img src="img/Gemini_Generated_Image_rvef02rvef02rvef.jpeg" alt="neon SUV and background">
+      <p class="image-caption">*illustrative purposes only</p>
     </div>
 
     <!-- Bottom section -->
